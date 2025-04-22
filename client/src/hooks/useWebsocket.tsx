@@ -16,7 +16,9 @@ const useWebsocket = <T extends WebSocketData>({
   };
 
   useEffect(() => {
-    const socket = new WebSocket('ws://localhost:8080');
+    const socket = new WebSocket(
+      process.env.VITE_WEBSOCKETURL ?? 'ws://localhost:8080',
+    );
     socketRef.current = socket;
 
     socket.onopen = () => {
