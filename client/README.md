@@ -1,54 +1,83 @@
-# React + TypeScript + Vite
+# Voice Chat Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time voice chat application built with React and WebSocket, allowing users to record and exchange voice messages with a digital agent.
 
-Currently, two official plugins are available:
+## 🚀 Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository
+2. Install dependencies for both client and server:
 
-## Expanding the ESLint configuration
+```bash
+# Install client dependencies
+cd client
+npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Install server dependencies
+cd ../assignment-demo-be
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. Start the server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+cd assignment-demo-be
+npm start
 ```
+
+4. Start the client:
+
+```bash
+cd client
+npm run dev
+```
+
+## 🛠 Tech Stack
+
+### Frontend (React + TypeScript)
+
+- **React** (v18.2) - UI framework
+- **TypeScript** - Type safety
+- **Vite** (v6.2) - Build tool and dev server
+- **TailwindCSS** (v4.1) - Utility-first CSS
+- **@wavesurfer/react** (v1.0) - Audio waveform visualization
+- **react-audio-voice-recorder** (v2.2) - Voice recording functionality
+- **@radix-ui** - Headless UI components
+- **class-variance-authority** - Component variant management
+
+### Backend (Node.js)
+
+- **ws** (v8.18) - WebSocket server
+- **Node.js** core modules (fs, http, path)
+
+## ✨ Features
+
+- Real-time voice chat using WebSocket
+- Voice recording with visualization
+- Audio playback with waveform display
+- Responsive UI with TailwindCSS
+- Type-safe development with TypeScript
+- Component variants using class-variance-authority
+- Modular architecture with React components
+
+## 🏗 Project Structure
+
+```
+├── client/                 # Frontend React application
+│   ├── src/
+│   │   ├── components/    # React components
+│   │   ├── hooks/        # Custom React hooks
+│   │   └── lib/          # Utility functions
+│   └── public/           # Static assets
+│
+└── assignment-demo-be/    # Backend WebSocket server
+    ├── records/          # Voice recordings storage
+    └── index.js         # Server implementation
+```
+
+## 🔧 Development
+
+- ESLint configuration for code quality
+- Prettier for code formatting
+- Hot Module Replacement (HMR) with Vite
+- Tailwind configuration for styling
+- TypeScript configuration for type checking
