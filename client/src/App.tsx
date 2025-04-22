@@ -1,7 +1,10 @@
-import { Outlet } from 'react-router';
-import ExampleComponent from './components/Sample';
+import { useState } from 'react';
+import { Chat } from './components/Chat';
+import { Modal } from './components/Modal';
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="bg-purl min-h-screen">
       <nav className="py-12">
@@ -17,7 +20,10 @@ function App() {
               Contact
             </a>
           </div>
-          <button className="text-sm font-semibold bg-purl-3 px-3.5 py-2 rounded-xl hover:opacity-80">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="text-sm font-semibold bg-purl-3 px-3.5 py-2 rounded-xl hover:opacity-80 mr-4"
+          >
             Call Jessica
           </button>
         </div>
@@ -44,6 +50,14 @@ function App() {
           </p>
         </div>
       </main>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <h2 className="text-sm font-semibold mb-2 text-purl-2">
+          Calling Jessica
+        </h2>
+        <div className="p-0 text-purl-2">
+          <Chat />
+        </div>
+      </Modal>
     </div>
   );
 }
